@@ -21,7 +21,7 @@ namespace YimMenu::Features
 
 			virtual void OnCall() override
 			{
-				auto base = ScriptGlobal(1964170).At(812).At(50);
+				auto base = ScriptGlobal(1968543).At(812).At(50);
 
 				*base.At(0, 1).As<int*>() = _DoomsdayHeistCut1.GetState();
 				*base.At(1, 1).As<int*>() = _DoomsdayHeistCut2.GetState();
@@ -36,7 +36,7 @@ namespace YimMenu::Features
 
 			virtual void OnCall() override
 			{
-				auto base = ScriptGlobal(1882449);
+				auto base = ScriptGlobal(1882717);
 
 				for (int i = 0; i <= 3; i++)
 				{
@@ -81,7 +81,7 @@ namespace YimMenu::Features
 				ScriptMgr::Yield(500ms);
 
 				if (auto thread = Scripts::FindScriptThread("gb_gang_ops_planning"_J))
-					*ScriptLocal(thread, 209).As<int*>() = 6;
+					*ScriptLocal(thread, 211).As<int*>() = 6;
 			}
 		};
 
@@ -93,9 +93,9 @@ namespace YimMenu::Features
 			{
 				if (auto thread = Scripts::FindScriptThread("fm_mission_controller"_J))
 				{
-					*ScriptLocal(thread, 1570).As<int*>() = 2;
-					*ScriptLocal(thread, 1539).As<int*>() = 3;
-					*ScriptLocal(thread, 1296).At(135).As<int*>() = 3;
+					*ScriptLocal(thread, 1572).As<int*>() = 2;
+					*ScriptLocal(thread, 1541).As<int*>() = 3;
+					*ScriptLocal(thread, 1298).At(135).As<int*>() = 3;
 				}
 			}
 		};
@@ -111,10 +111,10 @@ namespace YimMenu::Features
 					Scripts::ForceScriptHost(thread);
 					ScriptMgr::Yield(500ms);
 
-					*ScriptLocal(thread, 20391).At(1725).At(0, 1).As<int*>() = 80;
-					*ScriptLocal(thread, 20391).As<int*>() = 12;
-					*ScriptLocal(thread, 29011).At(0, 1).As<int*>() = 99999;
-					*ScriptLocal(thread, 32467).At(0, 294).At(68).As<int*>() = 99999;
+					*ScriptLocal(thread, 20395).At(1725).At(0, 1).As<int*>() = 80;
+					*ScriptLocal(thread, 20395).As<int*>() = 12;
+					*ScriptLocal(thread, 29016).At(0, 1).As<int*>() = 99999;
+					*ScriptLocal(thread, 32472).At(0, 294).At(68).As<int*>() = 99999;
 				}
 				// TODO: find a way of getting current heist info so that InstantFinishAct3 can be implemented here conditionally.
 			}
@@ -131,11 +131,11 @@ namespace YimMenu::Features
 					Scripts::ForceScriptHost(thread);
 					ScriptMgr::Yield(500ms);
 
-					*ScriptLocal(thread, 20391).As<int*>() = 12;
-					*ScriptLocal(thread, 20391).At(1740).At(0, 1).As<int*>() = 150;
-					*ScriptLocal(thread, 20391).At(1062).As<int*>() = 5;
-					*ScriptLocal(thread, 29011).At(0, 1).As<int*>() = 99999;
-					*ScriptLocal(thread, 32467).At(0, 294).At(68).As<int*>() = 99999;
+					*ScriptLocal(thread, 20395).As<int*>() = 12;
+					*ScriptLocal(thread, 20395).At(1740).At(0, 1).As<int*>() = 150;
+					*ScriptLocal(thread, 20395).At(1062).As<int*>() = 5;
+					*ScriptLocal(thread, 29016).At(0, 1).As<int*>() = 99999;
+					*ScriptLocal(thread, 32472).At(0, 294).At(68).As<int*>() = 99999;
 				}
 			}
 		};
