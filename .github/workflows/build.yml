@@ -1,0 +1,32 @@
+name: Build C++ DLL
+
+on:
+  push:
+    branches: [ enhanced ]
+  pull_request:
+    branches: [ enhanced ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Install MSVC toolchain
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Configure project with CMake
+        run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --config Release
+
+      - name: Upload DLL artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-cpp-dll
+          path: |
+            build/**/*.dll
+            build/**/*.lib
