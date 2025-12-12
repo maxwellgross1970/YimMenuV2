@@ -3,6 +3,7 @@
 #include "game/gta/Vehicle.hpp"
 
 #include <set>
+#include <chrono>  // Ensure chrono is included
 
 struct MPSV_Entry;
 
@@ -81,13 +82,19 @@ namespace YimMenu
 
 		std::unique_ptr<PersonalVehicle> GetCurrentImpl();
 		Vehicle GetCurrentHandleImpl();
+
+		// Updated method signature using steady_clock::time_point
 		void UpdateImpl();
+
 		void RegisterVehiclesImpl();
 		void RegisterGaragesImpl();
 
+		// Ensure the time point type is steady_clock
 		std::map<std::string, std::unique_ptr<PersonalVehicle>> m_PersonalVehicles;
 		std::map<int, std::string> m_PVLookup;
 		std::set<std::string> m_Garages;
+
+		// Use steady_clock::time_point to match the clock type
 		std::chrono::time_point<std::chrono::steady_clock> m_LastUpdate;
 	};
 }
